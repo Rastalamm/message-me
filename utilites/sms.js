@@ -13,19 +13,19 @@ const formatPhoneNumber = (number) => {
         throw {code:400, message: 'Invalid phone number'}
     }
 
-    return formattedNumber[0];
+    return () => formattedNumber[0];
 };
 
-const sendSms = (spec) => {
+const sendSms = (number, messageUrl) => {
 
-    console.log("sms", spec);
+    console.log("sms", number, messageUrl);
 
-    return Promise.try(formatPhoneNumber)
-        .then((number) => {
+    return Promise.try(formatPhoneNumber(number))
+        .then((phoneNumber) => {
            return client.messages.create({
-               to:to,
+               to: phoneNumber,
                from: twilioConfig.phoneNumber,
-               body: spec.message
+               body: messageUrl
            })
            .then((response) => {
                console.log(response.from);

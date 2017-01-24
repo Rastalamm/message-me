@@ -4,6 +4,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const path = require('path');
 const routes = require('./routes/router.js');
+const db = require('./models/');
 
 let server;
 
@@ -26,4 +27,5 @@ server = app.listen(process.env.app_port || 3000, function () {
     const port = server.address().port;
 
     console.log('Listening at http://%s:%s', host, port);
+    db.sequelize.sync()
 });
