@@ -18,9 +18,12 @@
   },
   "homepage": "https://github.com/Rastalamm/message-me#readme",
   "dependencies": {
+    "bluebird": "^3.4.7",
     "body-parser": "^1.16.0",
     "express": "^4.14.0",
-    "pug": "^2.0.0-beta7"
+    "phone": "^1.0.9",
+    "pug": "^2.0.0-beta7",
+    "twilio": "^2.11.1"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
