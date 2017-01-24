@@ -1,1 +1,25 @@
-h1 home page !
+h1 Enter your information below
+div
+    form(action='/api' method='POST')
+        input(
+            type='email'
+            name='email'
+            placeholder='Email'
+            autocomplete='off'
+        )
+        br
+        input(
+            type='tel'
+            name='telephone'
+            placeholder='Phone'
+            autocomplete='off'
+        )
+        br
+        input(
+            type='text'
+            name='message'
+            placeholder='Message to send'
+            autocomplete='off'
+            required
+        )
+        button(type='Submit') Submit
