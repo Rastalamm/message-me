@@ -8,6 +8,8 @@ module.exports = function(sequelize, DataTypes) {
     email: DataTypes.STRING,
     phone_number: DataTypes.STRING,
     message: DataTypes.STRING(1234)
+  }, {
+    tableName: 'messages'
   });
 
   return Messages;
