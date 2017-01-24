@@ -5,7 +5,7 @@ router.get('/', (ignore, res) => {
     res.status(200).render("index.pug")
 });
 
-router.get('/api', (ignore, res) => {
+router.post('/api', (req, res) => {
     res.status(200).send("api hit")
 });
 
