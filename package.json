@@ -1,0 +1,19 @@
+{
+  "name": "message-me",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rastalamm/message-me.git"
+  },
+  "author": "Judah Lamm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rastalamm/message-me/issues"
+  },
+  "homepage": "https://github.com/Rastalamm/message-me#readme"
+}
