@@ -8,7 +8,7 @@ router.get('/', (ignore, res) => {
 
 router.post('/api', (req, res) => {
     const spec = {
-        to: req.body.phone,
+        to: req.body.telephone,
         message: req.body.message
     };
 
@@ -18,7 +18,8 @@ router.post('/api', (req, res) => {
             res.status(200).send("api hit")
         })
         .catch((err) => {
-            res.send("err");
+            console.log("err", err);
+            res.send(err.code);
         })
 });
 
