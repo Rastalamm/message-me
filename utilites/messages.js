@@ -3,6 +3,7 @@
 const Messages = require('../models/').Message;
 const SMS = require('./sms.js');
 
+// Wrap in transaction
 const save = (spec) => {
     return Messages.create({
         email: spec.email,
@@ -23,7 +24,6 @@ const save = (spec) => {
 const find = (messageId) => {
     return Messages.findById(messageId)
         .then((message) => {
-            console.log("message", message);
             if (message) {
                 return message
             }
