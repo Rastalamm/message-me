@@ -1,4 +1,5 @@
 "use strict";
+
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -10,7 +11,6 @@ const db = require('./models/');
 let server;
 
 app.use(sassMiddleware({
-    /* Options */
     src: path.join(__dirname, '/templates/views/css'),
     dest: path.join(__dirname, '/public'),
     debug: true,
@@ -29,7 +29,6 @@ app.use(bodyParser.urlencoded({
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
-
 app.use(function (ignore, res) {
     res.status(404).render("404/index.pug");
 });
