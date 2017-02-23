@@ -23,7 +23,14 @@ const saveMessage = (spec) => {
 
 const findMessage = (messageId) => {
     return Messages.findById(messageId)
-        .then((message) => message.message)
+        .then((message) => {
+            console.log("message", message);
+            if (message) {
+                return message
+            }
+
+            throw {code: 404, message: `No message for id of ${messageId}`}
+        })
 };
 
 
@@ -31,5 +38,3 @@ module.exports = {
     saveMessage,
     findMessage
     }
-
-

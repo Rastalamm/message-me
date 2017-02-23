@@ -6,7 +6,7 @@ router.get('/', (ignore, res) => {
     res.status(200).render("index.pug")
 });
 
-router.post('/api', (req, res) => {
+router.post('/', (req, res) => {
     const body = req.body;
     const spec = {
         email: body.email,
@@ -16,8 +16,7 @@ router.post('/api', (req, res) => {
 
     Messages.saveMessage(spec)
         .then((data) =>{
-            console.log("data", data);
-            res.status(200).send("api hit")
+            res.status(200).render('success/index.pug');
         })
         .catch((err) => {
             console.log("err", err);
@@ -31,7 +30,7 @@ router.get('/messages/:id', (req, res) => {
     Messages.findMessage(messageId)
         .then((data) =>{
             console.log("data", data);
-            res.status(200).send(data)
+            res.status(200).render("message/index.pug", {data})
         })
         .catch((err) => {
             console.log("err", err);
