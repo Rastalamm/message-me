@@ -1,44 +1,45 @@
-extends ../partials/html.jade
+extends ../partials/html.pug
 
 block title
     +title("Home Page")
 
 block meta
-    +metaTags("Message Me", "This site allows you to send a hidden message to others.")
+    meta(name="description", content="This site allows you to send a hidden message to others.")
 
-block full-width
+block body
     header.form-header Please fill out the below information to get started.
-        div.form-container
-            form(method='POST' action='/api' )
-                input(
-                    type='email'
-                    name='email'
-                    placeholder='Email'
-                    autocomplete="off"
-                    autocorrect="off"
-                    autocapitalize="off"
-                    spellcheck="false"
-                )
-                br
-                input(
-                    type='tel'
-                    name='telephone'
-                    placeholder='xxx-xxx-xxxx'
-                    required
-                    autocomplete="off"
-                    autocorrect="off"
-                    autocapitalize="off"
-                    spellcheck="false"
-                )
-                br
-                input(
-                    type='text'
-                    name='message'
-                    placeholder='Message to send'
-                    required
-                    autocomplete="off"
-                    autocorrect="off"
-                    autocapitalize="off"
-                    spellcheck="false"
-                )
-                button(type='Submit') Submit
+    div.form-container.mod-wide
+        form(method='POST' action='/')
+            input.form-field(
+                type='email'
+                name='email'
+                placeholder='Email'
+                autocomplete="off"
+                autocorrect="off"
+                autocapitalize="off"
+                spellcheck="false"
+            )
+            input.form-field(
+                type='tel'
+                name='telephone'
+                placeholder='xxx-xxx-xxxx'
+                required
+                autocomplete="off"
+                autocorrect="off"
+                autocapitalize="off"
+                spellcheck="false"
+            )
+            input.form-field(
+                type='text'
+                name='message'
+                placeholder='Message to send'
+                required
+                autocomplete="off"
+                autocorrect="off"
+                autocapitalize="off"
+                spellcheck="false"
+            )
+            input.button.mod-submit(
+                type="submit"
+                value="Send Message"
+            )
