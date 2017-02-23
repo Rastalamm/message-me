@@ -16,7 +16,7 @@ app.use(sassMiddleware({
     debug: true,
     force: true,
     outputStyle: 'compressed',
-    prefix:  '/css'
+    prefix: '/css'
 }));
 
 app.set('view engine', 'pug');
@@ -38,5 +38,5 @@ server = app.listen(process.env.app_port || 3000, function () {
     const port = server.address().port;
 
     console.log('Listening at http://%s:%s', host, port);
-    db.sequelize.sync()
+    db.sequelize.sync();
 });

@@ -27,4 +27,4 @@ router.get('/messages/:id', (req, res) => {
         .catch((error) => res.send(error.code));
 });
 
-module.exports = router
+module.exports = router;
