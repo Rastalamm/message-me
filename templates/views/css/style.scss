@@ -1,0 +1,147 @@
+// Variables
+
+$smallScreen: "only screen and (max-width: 750px)";
+$mediumScreen: "only screen and (min-width: 751px) and (max-width: 900px)";
+$largeScreen: "only screen and (min-width: 901px) and (max-width: 1280px)";
+$extraLargeScreen: "only screen and (min-width: 1281px)";
+$lightGrey: #9e9e9e;
+$halfBlack: hsla(0, 0%, 0%, 0.5);
+$extraLightGrey: #eee;
+$green: #75ce94;
+$secondary: $halfBlack;
+$formBackground: $extraLightGrey;
+$primaryAction: $green;
+
+.global-page-wrap {
+    max-width: 980px;
+    margin: 2rem auto 4rem;
+}
+
+@media #{$smallScreen} {
+    .global-page-wrap {
+        padding: 0 1em;
+    }
+}
+
+@media #{$mediumScreen} {
+    .global-page-wrap {
+        padding: 0 1em;
+    }
+}
+
+// Buttons
+
+@mixin button($backgroundColor, $color) {
+    background-color: $backgroundColor;
+    color: $color;
+
+    &:hover {
+        background-color: darken($backgroundColor, 5%);
+    }
+
+    &:active {
+        background-color: darken($backgroundColor, 15%);
+    }
+
+    &:disabled {
+        background-color: lighten($backgroundColor, 10%);
+    }
+}
+
+.button {
+    border: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: block;
+    font-size: 1em;
+    text-align: center;
+    text-transform: uppercase;
+    transition: background-color linear 0.15s;
+    padding: 1em;
+    width: 100%;
+    -webkit-appearance: none;
+}
+
+.button:hover {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+    .button.mod-small {
+        font-size: 0.75em;
+    }
+
+    .button.mod-submit {
+        @include button($primaryAction, white);
+    }
+
+    .button.mod-pressed {
+        @include button(hsla(0, 0%, 0%, 0.6), white);
+    }
+
+    .button.mod-light-faint {
+        @include button(hsla(0, 0%, 0%, 0.1), $secondary);
+    }
+
+    .button.mod-one-line {
+        white-space: nowrap;
+    }
+
+    .button.mod-natural-width {
+        display: inline-block;
+        width: auto;
+    }
+
+    .button.mod-bordered {
+        border: 1px solid hsla(0, 0%, 0%, 0.1);
+    }
+
+
+// Forms
+
+.form-header {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    font-size: 1.1em;
+}
+
+.form-container {
+    background-color: $formBackground;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin: 1em auto;
+    max-width: 100%;
+    padding: 1em;
+    width: 35ch;
+}
+
+.form-container.mod-wide {
+    width: 40ch;
+}
+
+.form-field {
+    border: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+    margin-bottom: 1em;
+    padding: 1em;
+    width: 100%;
+
+    .form-field.mod-natural-width {
+        width: auto;
+    }
+}
+
+
+// Success page
+.success-container {
+    text-align: center;
+}
+
+// Message Page
+.message-container {
+    text-align: center;
+}
+

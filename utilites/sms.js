@@ -1,13 +1,13 @@
 "use strict"
 
-const twilioConfig = require('../config.js').twilio;
 const Promise = require('bluebird');
+const twilioConfig = require('../config.js').twilio;
 const client = require('twilio')(twilioConfig.sid, twilioConfig.api);
 
-const phone = require('phone');
+const formatNumber = require('phone');
 
 const formatPhoneNumber = (number) => {
-    const formattedNumber = phone(number);
+    const formattedNumber = formatNumber(number);
 
     if (formattedNumber.length !== 2) {
         throw {code:400, message: 'Invalid phone number'}
@@ -16,10 +16,7 @@ const formatPhoneNumber = (number) => {
     return () => formattedNumber[0];
 };
 
-const sendSms = (number, messageUrl) => {
-
-    console.log("sms", number, messageUrl);
-
+const send = (number, messageUrl) => {
     return Promise.try(formatPhoneNumber(number))
         .then((phoneNumber) => {
            return client.messages.create({
@@ -28,8 +25,6 @@ const sendSms = (number, messageUrl) => {
                body: messageUrl
            })
            .then((response) => {
-               console.log(response.from);
-               console.log(response.body);
                return response;
            })
            .catch((error) => {
@@ -39,4 +34,4 @@ const sendSms = (number, messageUrl) => {
         })
 };
 
-module.exports = {sendSms}
+module.exports = {send}

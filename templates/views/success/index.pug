@@ -1,0 +1,13 @@
+extends ../../partials/html.pug
+
+block title
+    +title("Message Sent Successfully")
+
+block meta
+    meta(name="description", content="If you're here, your message was went successfully!")
+
+block body
+    section.success-container
+        h1.success-heading Your message was sent successfully
+        br
+        a(href="/") Send another one!
