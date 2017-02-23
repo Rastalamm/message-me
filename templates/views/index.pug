@@ -1,25 +1,44 @@
-h1 Enter your information below
-div
-    form(action='/api' method='POST')
-        input(
-            type='email'
-            name='email'
-            placeholder='Email'
-            autocomplete='off'
-        )
-        br
-        input(
-            type='tel'
-            name='telephone'
-            placeholder='(xxx)-xxx-xxxx'
-            autocomplete='off'
-        )
-        br
-        input(
-            type='text'
-            name='message'
-            placeholder='Message to send'
-            autocomplete='off'
-            required
-        )
-        button(type='Submit') Submit
+extends ../partials/html.jade
+
+block title
+    +title("Home Page")
+
+block meta
+    +metaTags("Message Me", "This site allows you to send a hidden message to others.")
+
+block full-width
+    header.form-header Please fill out the below information to get started.
+        div.form-container
+            form(method='POST' action='/api' )
+                input(
+                    type='email'
+                    name='email'
+                    placeholder='Email'
+                    autocomplete="off"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    spellcheck="false"
+                )
+                br
+                input(
+                    type='tel'
+                    name='telephone'
+                    placeholder='xxx-xxx-xxxx'
+                    required
+                    autocomplete="off"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    spellcheck="false"
+                )
+                br
+                input(
+                    type='text'
+                    name='message'
+                    placeholder='Message to send'
+                    required
+                    autocomplete="off"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    spellcheck="false"
+                )
+                button(type='Submit') Submit
